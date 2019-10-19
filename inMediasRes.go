@@ -70,35 +70,35 @@ func ioReader(file string) io.ReaderAt {
 func processCommand(cmd string, sha256h string, hnk *widgets.Paragraph) {
 
 	switch cmd {
-		case ": vt":
-			{
-				vtURL := "https://virustotal.com/gui/file/" + sha256h
-				browser.OpenURL(vtURL)
-			}
-
-		case ": ha":
-			{
-				haURL := "https://www.hybrid-analysis.com/search?query=" + sha256h
-				browser.OpenURL(haURL)
-			}
-
-		case ": ms":
-			{
-				msURL := "https://malshare.com/search.php?query=" + sha256h
-				browser.OpenURL(msURL)
-			}
-
-		case ": honk":
-			{
-				ui.Render(hnk)
-			}
-
-		default:
-			{
-				d := dialog.New(dialog.AUTO, 0)
-				d.Msgbox("Command not recognized. Type \"help\" to see available commands")
-			}
+	case ": vt":
+		{
+			vtURL := "https://virustotal.com/gui/file/" + sha256h
+			browser.OpenURL(vtURL)
 		}
+
+	case ": ha":
+		{
+			haURL := "https://www.hybrid-analysis.com/search?query=" + sha256h
+			browser.OpenURL(haURL)
+		}
+
+	case ": ms":
+		{
+			msURL := "https://malshare.com/search.php?query=" + sha256h
+			browser.OpenURL(msURL)
+		}
+
+	case ": honk":
+		{
+			ui.Render(hnk)
+		}
+
+	default:
+		{
+			d := dialog.New(dialog.AUTO, 0)
+			d.Msgbox("Command not recognized. Type \"help\" to see available commands")
+		}
+	}
 
 }
 
